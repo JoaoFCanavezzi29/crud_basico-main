@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const serverless = require("serverless-http");
-const db = require("../models");
+const db = require("./models");
 const app = express();
 
 // Middlewares
@@ -13,12 +13,12 @@ app.set("views", path.join(__dirname, "../views"));
 app.set("view engine", "ejs");
 
 // Rotas
-const indexRouter = require("../routes/index");
-const categoriaRouter = require("../routes/categorias");
-const professorRouter = require("../routes/professor");
-const alunoRouter = require("../routes/aluno");
-const cursoRouter = require("../routes/curso");
-const disciplinaRouter = require("../routes/disciplina");
+const indexRouter = require("./routes/index");
+const categoriaRouter = require("./routes/categorias");
+const professorRouter = require("./routes/professor");
+const alunoRouter = require("./routes/aluno");
+const cursoRouter = require("./routes/curso");
+const disciplinaRouter = require("./routes/disciplina");
 
 app.use("/", indexRouter);
 app.use("/categorias", categoriaRouter);
