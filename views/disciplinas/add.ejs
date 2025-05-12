@@ -1,0 +1,32 @@
+<h1>Add Disciplina</h1>
+
+<form action="/disciplinas/add" method="POST">
+
+  <div class="form-group">
+    <label for="nome">Nome da Disciplina</label>
+    <input type="text" class="form-control" id="nome" name="nome" required>
+  </div>
+
+  <div class="form-group">
+    <label for="professorId">Selecione o Professor</label>
+    <select class="form-control" id="professorId" name="professorId" required>
+
+      <% professores.forEach(professor => { %>
+        <option value="<%= professor.id %>"><%= professor.nome %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="cursoId">Selecione o Curso</label>
+    <select class="form-control" id="cursoId" name="cursoId" required>
+
+      <% cursos.forEach(curso => { %>
+        <option value="<%= curso.id %>"><%= curso.nome %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add</button>
+
+</form>

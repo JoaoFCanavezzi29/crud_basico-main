@@ -1,0 +1,17 @@
+<h1>Editar Aluno</h1> 
+
+<form action="/alunos/edit/<%= aluno.id %>" method="POST"> 
+
+ <div class="form-group"> 
+
+  <label for="nome">Nome Aluno</label> 
+
+  <input type="text" class="form-control" id="nome" name="nome" 
+
+   value="<%= aluno.nome %>" required> 
+
+ </div> 
+
+ <button type="submit" class="btn btn-primary">Atualizar</button> 
+
+</form> 

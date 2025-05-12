@@ -1,0 +1,41 @@
+<h1>Cursos</h1> 
+
+<a href="/cursos/add" class="btn btn-success mb-3">Add Curso</a> 
+
+<table class="table table-bordered"> 
+
+ <thead> 
+
+  <tr> 
+
+   <th>ID</th> 
+
+   <th>Nome</th> 
+
+  </tr> 
+
+ </thead> 
+
+ <tbody> 
+
+  <% if (cursos && cursos.length > 0) { %>
+    <% cursos.forEach(curso => { %> 
+      <tr> 
+        <td><%= curso.id %></td> 
+        <td><%= curso.nome %></td> 
+        <td> 
+          <a href="/cursos/edit/<%= curso.id %>" class="btn btn-primary btn-sm">Editar</a> 
+          <form action="/cursos/delete/<%= curso.id %>" method="POST" class="d-inline"> 
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button> 
+          </form> 
+        </td> 
+      </tr> 
+    <% }) %>
+  <% } else { %>
+    <tr><td colspan="3">Nenhum curso encontrado.</td></tr>
+  <% } %>
+  
+
+ </tbody> 
+
+</table> 

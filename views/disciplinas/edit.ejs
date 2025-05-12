@@ -1,0 +1,34 @@
+<h1>Editar Disciplina</h1>
+
+<form action="/disciplinas/edit/<%= disciplina.id %>" method="POST">
+
+  <div class="form-group">
+    <label for="nome">Nome da Disciplina</label>
+    <input type="text" class="form-control" id="nome" name="nome" value="<%= disciplina.nome %>" required>
+  </div>
+
+  <div class="form-group">
+    <label for="professorId">Selecione o Professor</label>
+    <select class="form-control" id="professorId" name="professorId" required>
+      <% professores.forEach(professor => { %>
+        <option value="<%= professor.id %>" <%= professor.id === disciplina.professorId ? 'selected' : '' %> >
+          <%= professor.nome %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="cursoId">Selecione o Curso</label>
+    <select class="form-control" id="cursoId" name="cursoId" required>
+      <% cursos.forEach(curso => { %>
+        <option value="<%= curso.id %>" <%= curso.id === disciplina.cursoId ? 'selected' : '' %> >
+          <%= curso.nome %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Atualizar</button>
+
+</form>

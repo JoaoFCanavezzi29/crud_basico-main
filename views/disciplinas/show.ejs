@@ -1,0 +1,35 @@
+<h1>Disciplinas</h1>
+
+<a href="/disciplinas/add" class="btn btn-success mb-3">Add Disciplina</a>
+
+<table class="table table-bordered">
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Professor</th>
+      <th>Curso</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% disciplinas.forEach(disciplina => { %>
+      <tr>
+        <td><%= disciplina.id %></td>
+        <td><%= disciplina.nome %></td>
+        <td><%= disciplina.Professor ? disciplina.Professor.nome : 'Sem Professor' %></td>
+        <td><%= disciplina.Curso ? disciplina.Curso.nome : 'Sem Curso' %></td>
+        <td>
+          <a href="/disciplinas/edit/<%= disciplina.id %>" class="btn btn-primary btn-sm">Editar</a>
+
+          <form action="/disciplinas/delete/<%= disciplina.id %>" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+
+</table>

@@ -1,0 +1,34 @@
+<h1>Add Alunos</h1> 
+
+<form action="/alunos/add" method="POST"> 
+
+<div class="form-group"> 
+
+ <label for="nome">Nome Aluno</label> 
+
+ <input type="text" class="form-control" id="nome" name="nome" required> 
+
+ <label for="data_nascimento">Data de Nascimento</label> 
+
+ <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required> <BR></BR>
+ <% if (cursos && cursos.length > 0) { %>
+    <div>
+        <label for="cursos" style="font-weight: bold; display: block; margin-bottom: 8px;">Selecionar Cursos</label>
+        <div>
+            <% cursos.forEach(curso => { %>
+                <label style="display: block; margin-bottom: 5px;">
+                    <input type="checkbox" name="cursos[]" value="<%= curso.id %>">
+                    <%= curso.nome %>
+                </label>
+            <% }) %>
+        </div>
+    </div>
+<% } %>
+
+
+
+</div> 
+
+<button type="submit" class="btn btn-primary">Add</button> 
+
+</form> 

@@ -1,0 +1,34 @@
+<h1>Show CursosAluno</h1> 
+
+<table class="table table-bordered"> 
+  <thead> 
+    <tr> 
+      <th>ID</th> 
+      <th>Nome do Curso</th> 
+      <th>Nome do Aluno</th> 
+    </tr> 
+  </thead> 
+  <tbody> 
+    <% if (cursos && cursos.length > 0) { %>
+      <% cursos.forEach(curso => { %> 
+        <% if (curso.Alunos && curso.Alunos.length > 0) { %>
+          <% curso.Alunos.forEach(aluno => { %>
+            <tr> 
+              <td><%= curso.id %></td>
+              <td><%= curso.nome %></td> 
+              <td><%= aluno.nome %></td>
+            </tr> 
+          <% }) %>
+        <% } else { %>
+          <tr> 
+            <td><%= curso.id %></td>
+            <td><%= curso.nome %></td>
+            <td>Sem alunos associados</td>
+          </tr>
+        <% } %>
+      <% }) %>
+    <% } else { %>
+      <tr><td colspan="3">Nenhum curso encontrado.</td></tr>
+    <% } %>
+  </tbody> 
+</table>
